@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>红色电影问卷 XLSX 样本生成器</title>
+    <link rel="stylesheet" href="/static/app.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>红色电影问卷 XLSX 样本生成器</h1>
+        <p id="surveyTitle">正在加载题纲</p>
+      </div>
+      <div id="status" class="status">Ready</div>
+    </header>
+
+    <main class="shell">
+      <section class="panel controls">
+        <div class="section-title">
+          <h2>生成设置</h2>
+          <button id="restoreSchema" type="button">恢复默认题目</button>
+        </div>
+
+        <div class="grid two">
+          <div>
+            <label for="count">样本数量</label>
+            <input id="count" type="number" min="1" max="5000" value="50" />
+          </div>
+          <div>
+            <label for="seed">随机种子</label>
+            <input id="seed" type="text" placeholder="可为空" />
+          </div>
+        </div>
+
+        <div class="separator-card" aria-live="polite">
+          <span>问卷星多选分隔符</span>
+          <strong id="separatorText">┋ U+250B</strong>
+        </div>
+        <p class="hint">
+          依据你当前导入提示：多选题的多个选项在同一单元格中用“┋”区分。生成器不会再写入竖线 |、英文半角分号 ; 或中文全角分号 ；。
+        </p>
+
+        <button id="generateBtn" class="primary-action" type="button">生成 XLSX</button>
+
+        <div class="section-title compact">
+          <h2>生成结果</h2>
+        </div>
+        <div id="result" class="result muted">尚未生成文件</div>
+
+        <div class="section-title compact">
+          <h2>最近文件</h2>
+          <button id="refreshFiles" type="button">刷新</button>
+        </div>
+        <div id="fileList" class="file-list muted">暂无文件</div>
+      </section>
+
+      <section class="panel editor-panel">
+        <div class="section-title">
+          <h2>题目结构 JSON</h2>
+          <span id="questionCount" class="muted">0 题</span>
+        </div>
+        <textarea id="schemaEditor" spellcheck="false"></textarea>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

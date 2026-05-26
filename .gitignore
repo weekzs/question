@@ -1,0 +1,13 @@
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+*.py[cod]
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+.venv/
+red_movie_xlsx_tool/generated_samples/
+red_movie_xlsx_tool/.pytest_cache/
+red_movie_xlsx_tool/**/__pycache__/
